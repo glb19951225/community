@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 @Controller
-@RequestMapping("/alpha")
+
 public class AlphaController {
 
     @Autowired
@@ -104,6 +104,11 @@ public class AlphaController {
         model.addAttribute("name","北京大学");
         model.addAttribute("age","100");
         return "/demo/view";
+    }
+    @RequestMapping(path = "/hh", method = RequestMethod.GET)
+    public String getSchool(){
+
+        return "/demo/hh";
     }
 
     //响应JSON数据
