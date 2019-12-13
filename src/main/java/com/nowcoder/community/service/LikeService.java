@@ -22,7 +22,7 @@ public class LikeService {
 
     //点赞
     public void like(int userId, int entityType, int entityId, int entityUserId){
-        //此方法中国存在一个bug 如果用户未登录却点赞 那么会出现异常。。。。。待解决！！！
+        //此方法中存在一个bug 如果用户未登录却点赞 那么会出现异常。。。。。待解决！！！
         redisTemplate.execute(new SessionCallback() {
             @Override
             public Object execute(RedisOperations redisOperations) throws DataAccessException {
