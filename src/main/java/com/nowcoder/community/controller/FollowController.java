@@ -45,7 +45,7 @@ public class FollowController implements CommunityConstant{
     @ResponseBody
     public String follow(int entityType, int entityId){
         User user = hostHolder.getUser();
-
+        System.out.println(user.getId() + " !!!!!!!!!!");
         followService.follow(user.getId(), entityType, entityId);
 
         //触发关注事件
@@ -72,6 +72,7 @@ public class FollowController implements CommunityConstant{
 
     @RequestMapping(path = "/followees/{userId}", method = RequestMethod.GET)
     public String getFollowees(@PathVariable("userId") int userId, Page page, Model model){
+        System.out.println(userId + " test!!!!");
         User user = userService.findUserById(userId);
         if(user == null){
             throw new RuntimeException("该用户不存在！");
